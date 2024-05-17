@@ -1,8 +1,16 @@
-function displayAvailability(movieName, data) {
-  console.log("Movie: ", movieName);
+function formatBooking(data) {
+  let s = "";
   Object.keys(data).forEach((d) => {
-    console.log(`${data[d].date}: Bookings ${data[d].status}`);
+    s += `${data[d].date}: Bookings ${data[d].status}\n`;
   });
+  return s;
+}
+
+function displayAvailability(movieName, data) {
+  let formatString = "";
+  formatString += `Movie: ${movieName}\n`;
+  formatString += formatBooking(data);
+  return formatString;
 }
 
 module.exports = { displayAvailability };
